@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             x:Class="ShoppingList.Views.Navigation.NewShoppingListPage"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:control="clr-namespace:ShoppingList.Controls"
+             xmlns:converter="clr-namespace:ShoppingList.Converters">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="listView" ItemsSource="{Binding Items}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding ItemName}"></TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Entry Placeholder="Lista neve" Text="{Binding ListName}" WidthRequest="60"/>
+            <AbsoluteLayout>
+                <buttons:SfButton Text="Hozzáad" AbsoluteLayout.LayoutBounds="0,1,90,50" Command="{Binding AddItemCommand}" Style="{StaticResource SfButtonStyle}"/>
+                <Entry x:Name="itemEntry" Placeholder="Item Name" AbsoluteLayout.LayoutBounds="92,1,300,60" Text="{Binding ItemName}"/>
+            </AbsoluteLayout>
+            <StackLayout>
+                <Picker x:Name="picker"
+                    Title="Válaszd ki a kategóriát!"
+                    TitleColor="Black"
+                    ItemsSource="{Binding Category}"
+                    SelectedItem="{Binding SelectedCategory, Mode=TwoWay}"/>
+            </StackLayout>
+            <StackLayout>
+                <syncfusion:SfCheckBox x:Name="checkBox" IsChecked="{Binding IsGroup, Mode=TwoWay}" Text="Csoportos lista?"/>
+            </StackLayout>
+            <buttons:SfButton Text="Mentés" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="100" HeightRequest="50" Command="{Binding SaveListCommand}" Style="{StaticResource SfButtonStyle}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

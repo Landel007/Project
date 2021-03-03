@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:Converters="clr-namespace:ShoppingList.Converters"
+             x:Class="ShoppingList.Views.Navigation.NewMemberPage"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:control="clr-namespace:ShoppingList.Controls"
+             xmlns:converter="clr-namespace:ShoppingList.Converters">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Start" IsVisible="{Binding HasGroup}">
+                    <Label Margin="0,0,0,10" Text="Új családtag hozzáadása" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
+                    <Entry x:Name="emailText" Placeholder="E-mail" Text="{Binding Email}"/>
+                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                        <buttons:SfButton x:Name="saveBttn" Text="Hozzáad" Command="{Binding AddUserCommand}" Style="{StaticResource SfButtonStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout x:Name="Layout" HorizontalOptions="Center" VerticalOptions="Start" IsVisible="{Binding HasNoGroup}">                    
+                    <Label Margin="0,0,0,10" Text="Új csoport létrehozása" FontAttributes="Bold"/>
+                    <Entry x:Name="groupNameText" Placeholder="Csoport neve" Text="{Binding GroupName}"/>
+                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                        <buttons:SfButton Text="Csoport létrehozása" Command="{Binding NewGroupCommand}" Style="{StaticResource SfButtonStyle}" VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

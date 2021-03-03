@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ShoppingList.Views.Navigation"
+             x:Class="ShoppingList.Views.Navigation.BottomNavigationPage"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             SelectedTabColor="{DynamicResource PrimaryColor}"
+                UnselectedTabColor="{DynamicResource Gray-600}"
+             BarBackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </TabbedPage.Resources>
+    <local:Home Title="Kezdőlap"/>
+    <local:NewMemberPage Title="Családtag felvétele"/>
+    <local:NewShoppingListPage Title="Új bevásárlólista"/>
+    <local:MyShoppingListPage Title="Bevásárlólistáim"/>
+</TabbedPage>

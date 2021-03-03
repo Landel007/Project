@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1003334847269",
+    "firebase_url": "https://szofttech-3ad42.firebaseio.com",
+    "project_id": "szofttech-3ad42",
+    "storage_bucket": "szofttech-3ad42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003334847269:android:ecc3f21834facbd2b7e8cc",
+        "android_client_info": {
+          "package_name": "com.szofttech.beadando"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003334847269-dt0q6paiegsq0u28olqic4nn3d55nujf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwItvgjZF7kWw2zpXEUfw4yajq-UL-p5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003334847269-dt0q6paiegsq0u28olqic4nn3d55nujf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

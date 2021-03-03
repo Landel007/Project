@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingList.Views.Navigation.Home"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:control="clr-namespace:ShoppingList.Controls"
+             xmlns:converter="clr-namespace:ShoppingList.Converters">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout  HorizontalOptions="Center" VerticalOptions="Start" IsVisible="{Binding IsInvited}">
+                <Label Margin="0,0,0,10" Text="Meg lettél hívva egy csoportba" FontAttributes="Bold"/>
+                <Label Text="{Binding GroupName}"/>
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical">
+                    <buttons:SfButton Text="Elfogadás" Command="{Binding AcceptCommand}" WidthRequest="200" HorizontalOptions="Center" Style="{StaticResource SfButtonStyle}"/>
+                    <buttons:SfButton Text="Elutasítás" Command="{Binding DeclineCommand}" WidthRequest="200" HorizontalOptions="Center" Style="{StaticResource SfButtonStyle}"/>
+                </StackLayout>
+            </StackLayout>
+            
+            <Label Text="{Binding UserName}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <buttons:SfButton Text="Kijelentkezés" Command="{Binding SignOutCommand}" WidthRequest="200" HorizontalOptions="Center" Style="{StaticResource SfButtonStyle}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
